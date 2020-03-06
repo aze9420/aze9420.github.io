@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>linux学习笔记 - Hexo</title>
+
+
+    <meta name="description" content="linux学习笔记 1 shell家族shell：命令解释器，根据输入的命令执行相应命令。 察看当前系统下有哪些shell： 1cat &#x2F;etc&#x2F;shells  察看当前系统正在使用的shell。 1echo $SHELL  常见shell： 123456&#x2F;bin&#x2F;sh (已经被 &#x2F;bin&#x2F;bash 所取代)&#x2F;bin&#x2F;bash (就是 Linux 默认的 shell)&#x2F;bin&#x2F;ksh (Korns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/02/17/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="linux学习笔记 1 shell家族shell：命令解释器，根据输入的命令执行相应命令。 察看当前系统下有哪些shell： 1cat &#x2F;etc&#x2F;shells  察看当前系统正在使用的shell。 1echo $SHELL  常见shell： 123456&#x2F;bin&#x2F;sh (已经被 &#x2F;bin&#x2F;bash 所取代)&#x2F;bin&#x2F;bash (就是 Linux 默认的 shell)&#x2F;bin&#x2F;ksh (Korns">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2020-02-17T04:25:48.182Z">
+<meta property="article:modified_time" content="2020-02-17T08:33:41.596Z">
+<meta property="article:author" content="阿泽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="linux学习笔记" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/aze9420">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-17T04:25:48.182Z">2020-02-17</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    an hour read (About 12844 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                linux学习笔记
+            
+        </h1>
+        <div class="content">
+            <h1 id="linux学习笔记"><a href="#linux学习笔记" class="headerlink" title="linux学习笔记"></a>linux学习笔记</h1><p><img src="http://ww1.sinaimg.cn/large/006V45Vggy1gbzhax6o2tj30wz0yaabf.jpg" alt="alt  图"></p>
+<h4 id="1-shell家族"><a href="#1-shell家族" class="headerlink" title="1 shell家族"></a>1 shell家族</h4><p><strong>shell：</strong>命令解释器，根据输入的命令执行相应命令。</p>
+<p>察看当前系统下有哪些shell：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/shells</span><br></pre></td></tr></table></figure>
+
+<p>察看当前系统正在使用的shell。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+
+<p><strong>常见shell：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/bin/sh (已经被 /bin/bash 所取代)</span><br><span class="line">/bin/bash (就是 Linux 默认的 shell)</span><br><span class="line">/bin/ksh (Kornshell 由 AT&amp;T Bell lab. 发展出来的，兼容于 bash)</span><br><span class="line">/bin/tcsh (整合 C Shell ，提供更多的功能)</span><br><span class="line">/bin/csh (已经被 /bin/tcsh 所取代)</span><br><span class="line">/bin/zsh (基于 ksh 发展出来的，功能更强大的 shell)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-bash"><a href="#1-2-bash" class="headerlink" title="1.2 bash"></a>1.2 bash</h4><p>bash 是一个为GNU计划编写的Unix shell。它的名字是一系列缩写：Bourne-Again SHell — 这是关于Bourne shell（sh）的一个双关语（Bourne again / born again）<br>bash 是 许 多 Linux 平 台 的 内 定 Shell， 事 实 上， 还 有 许 多 传 统 UNIX 上 用 的 Shell， 像 tcsh、csh、ash、bsh、ksh等等，Shell Script大致都类同，当您学会一种Shell以后，其 它的Shell会很快就上手，大多数的时候，一个Shell Script通常可以在很多种Shell上使用。</p>
+<p>bash是大多数Linux系统以及Mac OS X v10.4默认的shell，它能运行于大多数Unix风格 的操作系统之上，甚至被移植到了Microsoft Windows上的Cygwin系统中，以实现windows的POSIX虚拟接口。此外，它也被DJGPP项目移植到了MS-DOS上。</p>
+<h4 id="1-3-命令和路径补齐"><a href="#1-3-命令和路径补齐" class="headerlink" title="1.3 命令和路径补齐"></a>1.3 命令和路径补齐</h4><p>在bash下敲命令时，Tab键可以补全已经敲了一部分的文件名和目录名。如果是Ubuntu 系统，系统默认启用了bash completion，还可以补全命令的某些参数、Makefile目标等 等。如果是Debian系统，可以用以下命令启用bash completion：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source /etc/bash_completion</span><br></pre></td></tr></table></figure>
+
+<p>建议将这一行加入<code>∼/.bashrc</code>启动脚本中。比如使用sudo后面接命令，如果没有bash completion则只有sudo可以补全，后面的命令不能补全。如果启用了bash completion，则 后面的命令，包括命令的某些参数（比如aptitude命令的install）都可以补全了。</p>
+<p>比如在主目录下要列出桌面目录的内容，输入（不回车）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls De</span><br></pre></td></tr></table></figure>
+
+<p>然后敲Tab键，如果以De开头的文件或文件夹只有Desktop一个，就自动补全为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls Desktop</span><br></pre></td></tr></table></figure>
+
+<p>否则，再敲一次Tab键，将会把所有以De开头的文件或文件夹列在下面供你选择(在这里 我们手动创建另外一个以De开头的文件)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ touch Death</span><br><span class="line">$ ls De</span><br><span class="line">Death    Desktop/</span><br></pre></td></tr></table></figure>
+
+<p>你可以再补敲一个s再Tab，这次Desktop就会补全到命令后面了。有 的 人 是 从 DOS 时 代 过 来 的， 留 下 一 个 很 不 好 的 习 惯 就 是 在 找 一 个 文 件 时 反 复 地<code>cd、ls、cd、ls</code>等找到了要找的文件时再想回到先前的目录，已经不记得先前是 从哪个目录转到这里来的了。</p>
+<p>我们从上面可以看出，Tab补全本身就具备了ls的功能，上面的Tab补全相当于<code>ls -Fd De*</code>命令。所以我们完全不必反复地cd到别的目录然后ls去找文件，多按几次Tab就可以一条 命令完成了，这样的好处是我们的当前目录不用变，不需要找完了文件再cd回来，同时省去 了大量的按键次数。更重要的是，自动补全同时兼具了检查拼写错误的功能，如果前面几个 字母拼写错了，就补全不出东西来，用户就知道拼写错了，如果前面几个字母没有拼写错， 那么由系统补全出来的文件名肯定也不会有拼写错误，避免了用户在敲很长的文件名时易犯 的拼写错误。</p>
+<h4 id="1-4-历史记录"><a href="#1-4-历史记录" class="headerlink" title="1.4 历史记录"></a>1.4 历史记录</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history</span><br></pre></td></tr></table></figure>
+
+<p>历史记录是另外一个非常方便的功能。按上下移动光标键（或者<code>Ctrl-p、Ctrl-n</code>）可以 一条一条浏览以前输过的命令。如果有需要重复输入的命令就不用输第二次了。如果你能记 住以前输过的某条命令中的某个关键字，可以按Ctrl-r，然后输入关键字，随着你每输入一 个字母，bash会做增量式（increasingly）查找，也可以反复按Ctrl-r或Ctrl-s向前向后查 找。如果找到了，按左右移动光标键或Home键(Ctrl-a)或End键(Ctrl-e)将该命令带回提示 符下进一步修改，或者直接按Enter键原封不动地执行该命令。</p>
+<h4 id="1-5-主键盘快捷键"><a href="#1-5-主键盘快捷键" class="headerlink" title="1.5 主键盘快捷键"></a>1.5 主键盘快捷键</h4><p>bash的快捷键和emacs保持一致，用惯其中之一再用另一个程序会很顺手的。请记住一条原则：尽量使用主键盘快捷键而不使用移动光标键和编辑键。因为手不必离开主键盘是效 率最高的，这样在你一生之中所节省的来回移动手的时间绝对可以用星期来计算，是绝对值 得你花十分钟的时间记住这些快捷键的。</p>
+<table>
+<thead>
+<tr>
+<th align="left">功能</th>
+<th align="left">快捷键</th>
+<th align="left">助记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">上</td>
+<td align="left">Ctrl-p</td>
+<td align="left">previous</td>
+</tr>
+<tr>
+<td align="left">下</td>
+<td align="left">Ctrl-n</td>
+<td align="left">next</td>
+</tr>
+<tr>
+<td align="left">左</td>
+<td align="left">Ctrl-b</td>
+<td align="left">backward</td>
+</tr>
+<tr>
+<td align="left">右</td>
+<td align="left">Ctrl-f</td>
+<td align="left">forward</td>
+</tr>
+<tr>
+<td align="left">Del</td>
+<td align="left">Ctrl-d</td>
+<td align="left">delete光标后面的</td>
+</tr>
+<tr>
+<td align="left">Home</td>
+<td align="left">Ctrl-a</td>
+<td align="left">the first letter</td>
+</tr>
+<tr>
+<td align="left">End</td>
+<td align="left">Ctrl-e</td>
+<td align="left">end</td>
+</tr>
+<tr>
+<td align="left">Backspace</td>
+<td align="left">Backspace</td>
+<td align="left">delete光标前面的</td>
+</tr>
+</tbody></table>
+<h3 id="目录和文件"><a href="#目录和文件" class="headerlink" title="目录和文件"></a>目录和文件</h3><h4 id="2-1-类Unix系统目录结构"><a href="#2-1-类Unix系统目录结构" class="headerlink" title="2.1 类Unix系统目录结构"></a>2.1 类Unix系统目录结构</h4><p>ubuntu没有盘符这个概念，只有一个根目录/，所有文件都在它下面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/    根目录</span><br><span class="line">bin    <span class="comment">//系统可执行程序，如命令</span></span><br><span class="line">boot        <span class="comment">//内核和启动程序，所有和启动相关的文件都保存在这里 grub    //引导器相关文件</span></span><br><span class="line">dev    <span class="comment">//设备文件</span></span><br><span class="line">etc    <span class="comment">//系统软件的启动和配置文件，系统在启动过程中需要读取的文件都在这个目录。如LILO参数、用 户账户和密码。</span></span><br><span class="line">home    <span class="comment">//用户的主目录。下面是自己定义的用户名的文件夹</span></span><br><span class="line">lib    <span class="comment">//系统程序库文件,这个目录里存放着系统最基本的动态链接共享库，类似于Windows下的system32 目录，几乎所有的应用程序都需要用到这些共享库。</span></span><br><span class="line">media <span class="comment">//挂载媒体设备，如光驱、U盘等</span></span><br><span class="line">mnt    <span class="comment">//目录是让用户临时挂载别的文件系统，如挂载Windows下的某个分区，ubuntu默认还是挂载在/media 目录。</span></span><br><span class="line">opt    <span class="comment">//可选的应用软件包（很少使用）</span></span><br><span class="line">proc    <span class="comment">//这个目录是系统内存的映射，我们可以直接访问这个目录来获取系统信息。也就是说，这个目录 的内容不在硬盘上而是在内存里。</span></span><br><span class="line">sbin    <span class="comment">//管理员系统程序 selinux</span></span><br><span class="line">srv</span><br><span class="line">sys    <span class="comment">//udev用到的设备目录树，/sys反映你机器当前所接的设备 tmp //临时文件夹</span></span><br><span class="line">usr    <span class="comment">//这是个最庞大的目录，我们要用到的很多应用程序和文件几乎都存放在这个目录下。] bin    // 应用程序</span></span><br><span class="line">game <span class="comment">//游戏程序 include</span></span><br><span class="line">lib    <span class="comment">//应用程序的库文件 lib64</span></span><br><span class="line">local    <span class="comment">//包含用户程序等 sbin    //管理员应用程序</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-用户目录"><a href="#2-2-用户目录" class="headerlink" title="2.2 用户目录"></a>2.2 用户目录</h4><p>位于<code>/home/user</code>，称之为用户工作目录或家目录,表示方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/home/user</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-1-相对路径和绝对路径"><a href="#2-2-1-相对路径和绝对路径" class="headerlink" title="2.2.1 相对路径和绝对路径"></a>2.2.1 相对路径和绝对路径</h5><p><strong>绝对路径</strong></p>
+<p>从/目录开始描述的路径为绝对路径，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home ls /usr</span><br></pre></td></tr></table></figure>
+
+<p><strong>相对路径</strong></p>
+<p>从当前位置开始描述的路径为相对路径，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ../../ ls abc/def</span><br></pre></td></tr></table></figure>
+
+<p><strong>.和..</strong></p>
+<p>每个目录下都有<strong>.和..</strong><br><strong>.</strong> 表示当前目录<br><strong>..</strong> 表示上一级目录，即父目录 根目录下的.和..都表示当前目录</p>
+<h4 id="2-3-ls"><a href="#2-3-ls" class="headerlink" title="2.3 ls"></a>2.3 ls</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls [OPTION]… [FILE]…</span><br></pre></td></tr></table></figure>
+
+<p>ls是英文单词list的简写，其功能为列出目录的内容。这是用户最常用的一个命令，因 为用户需要不时地查看某个目录的内容。该命令类似于DOS下的dir命令。 对于每个目录， 该命令将列出其中的所有子目录与文件。对于每个文件，ls将输出其文件名以及所要求的其 他信息。默认情况下，输出条目按字母顺序排序。当未给出目录名或是文件名时，就显示当 前目录的信息。</p>
+<p>主要的OPTION有：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-a 列出隐藏文件，文件中以“.”开头的均为隐藏文件，如：~/.bashrc</span><br><span class="line">-l 列出文件的详细信息</span><br><span class="line">-R 连同子目录中的内容一起列出</span><br></pre></td></tr></table></figure>
+
+<p>用<code>ls -l</code>命令显示的信息中，开头是由10个字符构成的字符串，其中第一个字符表示文 件类型，它可以是下述类型之一：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 普通文件 d 目录</span><br><span class="line">l 符号链接</span><br><span class="line">b 块设备文件</span><br><span class="line">c 字符设备文件</span><br><span class="line">s socket文件，网络套接字 p 管道</span><br></pre></td></tr></table></figure>
+
+<p>后面的9个字符表示文件的访问权限，分为3组，每组3位。第一组表示文件属主的权 限，第二组表示同组用户的权限，第三组表示其他用户的权限。每一组的三个字符分别表示 对文件的读、写和执行权限。各权限如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r 读</span><br><span class="line">w 写</span><br><span class="line">x 可执行。对于目录，表示进入权限。</span><br><span class="line">s 当文件被执行时，把该文件的UID或GID赋予执行进程的UID（用户ID）或GID（组 ID）。</span><br><span class="line">t 设置标志位（sticky bit）。如果是有sticky bit的目录，在该目录下任何用户只要有适当的权限即可创建文 件，但文件只能被超级用户、目录拥有者或文件属主删除。如果是有sticky bit的可执行文件，在该文件执行后， 指向其正文段的指针仍留在内存。这样再次执行它时，系统就能更快地装入该文件。</span><br><span class="line">- 没有相应位置的权限。</span><br></pre></td></tr></table></figure>
+
+<p>访问权限后面的数字表示与该文件共享inode的文件总数，即硬链接数(参见下面ln命 令)。</p>
+<h4 id="2-4-cd"><a href="#2-4-cd" class="headerlink" title="2.4 cd"></a>2.4 cd</h4><p>change dir 改变当前所在路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">cd dir1/dir2 cd ..</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5-which"><a href="#2-5-which" class="headerlink" title="2.5 which"></a>2.5 which</h4><p>查看指定命令所在路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which ls</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-pwd"><a href="#2-6-pwd" class="headerlink" title="2.6 pwd"></a>2.6 pwd</h4><p>查看当前所在路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-7-mkdir"><a href="#2-7-mkdir" class="headerlink" title="2.7 mkdir"></a>2.7 mkdir</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir [OPTION] DIRECTORY…</span><br></pre></td></tr></table></figure>
+
+<p>创建目录DIRECTORY，可以一次创建多个。OPTION如果是-p，表示可以连同父目录一起 创建。</p>
+<h4 id="2-8-rmdir"><a href="#2-8-rmdir" class="headerlink" title="2.8 rmdir"></a>2.8 rmdir</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir [OPTION]… DIRECTORY…</span><br></pre></td></tr></table></figure>
+
+<p>删除空目录，可以一次删除多个。OPTION如果是-p，表示可以连同空的父目录一起删 除。mkdir和rmdir的用法举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir a</span><br><span class="line">$ mkdir a/b</span><br><span class="line">$ ls a b</span><br><span class="line">$ rmdir a/b</span><br><span class="line">$ ls a</span><br><span class="line">$ rmdir a</span><br><span class="line">$ mkdir a/b</span><br><span class="line">mkdir: cannot create directory `a/b<span class="string">': No such file or directory</span></span><br><span class="line"><span class="string">$ mkdir -p a/b</span></span><br><span class="line"><span class="string">$ rmdir -p a/b</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-9-touch"><a href="#2-9-touch" class="headerlink" title="2.9 touch"></a>2.9 touch</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch [OPTION]… FILE…</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将每个文件的访问及修改时间都更新为目前的时间。</li>
+<li>如果文件不存在，则创建一个字节数为0的文件。</li>
+</ul>
+<h4 id="2-10-rm"><a href="#2-10-rm" class="headerlink" title="2.10 rm"></a>2.10 rm</h4><p>删除文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm file</span><br></pre></td></tr></table></figure>
+
+<p>删除目录：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm dir -rf</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-11-mv"><a href="#2-11-mv" class="headerlink" title="2.11 mv"></a>2.11 mv</h4><p>重命名：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv file1 file2</span><br></pre></td></tr></table></figure>
+
+<p>移动文件:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv file1 ~/</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-12-cp"><a href="#2-12-cp" class="headerlink" title="2.12 cp"></a>2.12 cp</h4><p>拷贝文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp file1 file2 cp file1 dir/ cp file1 ../</span><br></pre></td></tr></table></figure>
+
+<p>拷贝目录:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp dir1 dir2 -r cp dir1 ~/ -r</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-13-cat"><a href="#2-13-cat" class="headerlink" title="2.13 cat"></a>2.13 cat</h4><p>查看文件里内容，输出到终端，如果cat时没跟文件名，则读标准输入，遇到\n后，输 出到标准输出，终端下输入Ctrl-d表示结束</p>
+<h4 id="2-14-more"><a href="#2-14-more" class="headerlink" title="2.14 more"></a>2.14 more</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">more [OPTION] FILE…</span><br></pre></td></tr></table></figure>
+
+<p>查看文本文件的内容，屏幕显示完一屏就等待用户按下任意键再滚动到下一屏，如果中 途不想继续看下去了，可以按Ctrl+C或q终止显示。</p>
+<h4 id="2-15-less"><a href="#2-15-less" class="headerlink" title="2.15 less"></a>2.15 less</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less [OPTION] FILE…</span><br></pre></td></tr></table></figure>
+
+<p>查看文本文件的内容，屏幕显示完一屏就等待用户按键，用户可以向上或向下查看，如 果中途不想继续看下去了，可以按Ctrl+C或q终止显示。</p>
+<h4 id="2-16-head"><a href="#2-16-head" class="headerlink" title="2.16 head"></a>2.16 head</h4><p><code>head [OPTION]… FILE…</code> 显示指定文件的前面几行。如果没有指定文件，将从标准输入（键盘）上读取。如果没<br>有指定要显示的行数，则默认显示前10行。如果要显示文件的前5行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ head -<span class="number">5</span> file1</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-17-tail"><a href="#2-17-tail" class="headerlink" title="2.17 tail"></a>2.17 tail</h4><p><code>tail [OPTION]… FILE…</code> 显示文件的最后几行。若没有指定显示的行或字符数，则默认显示末尾10行。如果要显<br>示文件末5行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -<span class="number">5</span> file1</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-18-ln"><a href="#2-18-ln" class="headerlink" title="2.18 ln"></a>2.18 ln</h4><p>链接有两种，一种被称为<strong>硬链接（Hard Link）</strong>，另一种被称为<strong>符号链接（Symbolic Link）</strong>。建立硬链接时，链接文件和被链接文件必须位于同一个文件系统中，并且不能建立 指向目录的硬链接。而对符号链接，则不存在这个问题。默认情况下，ln产生硬链接。如果 给ln命令加上-s选项，则建立符号链接。举例如下，注意ls -l列出文件的硬链接数和字节 数：</p>
+<p>硬链接：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch hello</span><br><span class="line">ln hello word_h</span><br></pre></td></tr></table></figure>
+
+<p>软链接：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s hello word_s</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-19-tree"><a href="#2-19-tree" class="headerlink" title="2.19 tree"></a>2.19 tree</h4><p>这个命令需要下载安装，ubuntu下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tree</span><br></pre></td></tr></table></figure>
+
+<p>按结构树的形状显示目录和文件</p>
+<h4 id="2-20-wc"><a href="#2-20-wc" class="headerlink" title="2.20 wc"></a>2.20 wc</h4><p>利用 wc 指令我们可以计算文件的 Byte 数、字数、或是列数,若不指定文件名称、或 是所给予的文件名为“-”,则 wc 指令会从标准输入设备读取数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l .<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-c 或–bytes 或–chars 只显示 Bytes 数。<br>-l 或–lines 只显示列数。<br>-w 或–words 只显示字数。</p>
+</blockquote>
+<h4 id="2-21-od"><a href="#2-21-od" class="headerlink" title="2.21 od"></a>2.21 od</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">od -tcx file1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>-t 指定数据的显示格式，主要的参数有：<br>c ASCII字符或反斜杠序列<br>d[SIZE] 有符号十进制数,每个整数SIZE字节。 f[SIZE] 浮点数,每个整数SIZE字节。<br>o[SIZE] 八进制（系统默认值为02）,每个整数SIZE字节。 u[SIZE] 无符号十进制数,每个整数SIZE字节。<br>x[SIZE] 十六进制数,每个整数SIZE字节。</p>
+</blockquote>
+<h4 id="2-22-du"><a href="#2-22-du" class="headerlink" title="2.22 du"></a>2.22 du</h4><p>查看某个目录的大小： 以M为单位</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -hm /home/sihai/test</span><br></pre></td></tr></table></figure>
+
+<p>以B为单位</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -hb .<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
+
+<p>以K为单位,4k的整数倍</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -hk .<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-23-df"><a href="#2-23-df" class="headerlink" title="2.23 df"></a>2.23 df</h4><p>df查看磁盘使用情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df --block-size=GB df --block-size=MB</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件属性和用户用户组"><a href="#文件属性和用户用户组" class="headerlink" title="文件属性和用户用户组"></a>文件属性和用户用户组</h3><h4 id="3-1-whoami"><a href="#3-1-whoami" class="headerlink" title="3.1 whoami"></a>3.1 whoami</h4><p>查看当前登陆用户</p>
+<h4 id="3-2-chmod"><a href="#3-2-chmod" class="headerlink" title="3.2 chmod"></a>3.2 chmod</h4><ul>
+<li>文字设定法</li>
+</ul>
+<blockquote>
+<p>chmod [who] [+|-|=] [mode] 文件名</p>
+</blockquote>
+<p>操作对象who可是下述字母中的任一个或者它们的组合：</p>
+<blockquote>
+<p>u 表示“用户（user）”，即文件或目录的所有者。<br>g 表示“同组（group）用户”，即与文件属主有相同组ID的所有用户。 o 表示“其他（others）用户”。<br>a 表示“所有（all）用户”。它是系统默认值。</p>
+</blockquote>
+<p>操作符号可以是：</p>
+<ul>
+<li>+添加某个权限。</li>
+<li>-取消某个权限。</li>
+<li>= 赋予给定权限并取消其他所有权限（如果有的话）。</li>
+</ul>
+<p>设置mode所表示的权限可用下述字母的任意组合：</p>
+<blockquote>
+<p>r 可读。 w 可写。<br>x 可执行。</p>
+</blockquote>
+<ul>
+<li>数字设定法</li>
+</ul>
+<p><strong>chmod [mode] 文件名</strong> 我们必须首先了解用数字表示的属性的含义：</p>
+<blockquote>
+<p>0表示没有权限，<br>1表示可执行权限，<br>2表示可写权限，<br>4表示可读权限，</p>
+</blockquote>
+<p>然后将其相加。所以数字属性的格式应为3个从0到7的八进制数，其顺序是<br><strong>（u）（g）（o）</strong>。</p>
+<p>例如，如果想让某个文件的属主有“读/写”二种权限，需要把4（可读）+2（可写）＝ 6（读/写）。</p>
+<p>比如设置一个文件允许所有用户可写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod a+w file1</span><br></pre></td></tr></table></figure>
+
+<p>设置一个文件允许所有用户可读、可写、不可执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod <span class="number">666</span> file1</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-chown"><a href="#3-3-chown" class="headerlink" title="3.3 chown"></a>3.3 chown</h4><blockquote>
+<p>chown [OPTION]… [OWNER:GROUP] FILE…</p>
+</blockquote>
+<p><code>chown [OPTION]… –reference=RFILE FILE…</code> 更改某个文件或目录的属主和属组。这个命令也很常用。例如root用户把自己的一个文件拷贝给用户A, 为了让用户A能够存取这个文件，root用户应该把这个文件的属主设为A， 否则，用户A无法存取这个文件。</p>
+<p>OPTION的主要参数：</p>
+<ul>
+<li>-R 递归式地改变指定目录及其下的所有子目录和文件的拥有者。</li>
+<li>-v 显示chown命令所做的工作。 比如把一个文件改为sihai用户和nogroup用户组所有</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown sihai:nogroup file1</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<ul>
+<li>chown需要特权用户才能执行</li>
+<li>一个文件的owner和owning group是没有关联的。一个文件属于用户A，也属于用户组 B，并不表示用户A属于用户组B。</li>
+</ul>
+<h4 id="3-4-chgrp"><a href="#3-4-chgrp" class="headerlink" title="3.4 chgrp"></a>3.4 chgrp</h4><blockquote>
+<p>chgrp [OPTION]… GROUP FILE…</p>
+</blockquote>
+<p><code>chgrp [OPTION]… –reference=RFILE FILE…</code> 该命令改变（指定）指定文件所属的用户组。其中group可以是用户组ID，也可以是/etc/group文件中用户组的组名。</p>
+<p>文件名是以空格分开的要改变属组的文件列表，支持通配 符。如果用户不是该文件的属主或超级用户，则不能改变该文件的组。</p>
+<p>OPTION的主要参数：</p>
+<ul>
+<li>-R 递归式地改变指定目录及其下的所有子目录和文件的属组。</li>
+</ul>
+<h3 id="查找与检索"><a href="#查找与检索" class="headerlink" title="查找与检索"></a>查找与检索</h3><h4 id="4-1-find"><a href="#4-1-find" class="headerlink" title="4.1 find"></a>4.1 find</h4><p>根据文件名查找</p>
+<p><code>find [OPTION] path… [expression]</code> 在目录中搜索文件，path指定目录路径，系统从这里开始沿着目录树向下查找文件。它是一个路径列表，相互用空格分离，如果不写path，那么默认为当前目录。Expression 是 find命令接受的表达式，find命令的所有操作都是针对表达式的。</p>
+<p>一条最常用的find命令－－在当前目录及子目录下查找所有以file开头的文件名。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ find . -name <span class="string">'file*'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ find / -name <span class="string">'vimrc'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ find ~ -name <span class="string">'*.c'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-grep"><a href="#4-2-grep" class="headerlink" title="4.2 grep"></a>4.2 grep</h4><p>根据内容检索</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [options] PATTERN [FILE...]</span><br></pre></td></tr></table></figure>
+
+<p>在指定文件中搜索特定的内容，并将含有这些内容的行输出到标准输出。若不指定文件 名，则从标准输入读取。<br>[options]部分包含的主要参数：</p>
+<ul>
+<li><p>-c：只输出匹配行的计数。</p>
+</li>
+<li><p>-I：不区分大小写（只适用于单字符）。</p>
+</li>
+<li><p>-h：查询多文件时不显示文件名。</p>
+</li>
+<li><p>-l：查询多文件时只输出包含匹配字符的文件名。</p>
+</li>
+<li><p>-n：显示匹配行及行号。</p>
+</li>
+<li><p>-s：不显示不存在或无匹配文本的错误信息。</p>
+</li>
+<li><p>-v：显示不包含匹配文本的所有行。</p>
+</li>
+<li><p>-R: 连同子目录中所有文件一起查找。</p>
+</li>
+</ul>
+<p>比如到系统头文件目录下查找所有包含printf的文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep <span class="string">'printf'</span> /usr/include -R</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装卸载软件"><a href="#安装卸载软件" class="headerlink" title="安装卸载软件"></a>安装卸载软件</h3><h4 id="5-1-apt-get"><a href="#5-1-apt-get" class="headerlink" title="5.1 apt-get"></a>5.1 apt-get</h4><p>更新源服务器列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>更新完服务器列表后需要更新下源</p>
+<blockquote>
+<p>sudo apt-get update 更新源<br>sudo apt-get install package 安装包<br>sudo apt-get remove package 删除包<br>sudo apt-cache search package 搜索软件包<br>sudo apt-cache show package 获取包的相关信息，如说明、大小、版本等 sudo apt-get install package –reinstall 重新安装包<br>sudo apt-get -f install 修复安装<br>sudo apt-get remove package –purge 删除包，包括配置文件等 sudo apt-get build-dep package 安装相关的编译环境<br>sudo apt-get upgrade 更新已安装的包 sudo apt-get dist-upgrade 升级系统<br>sudo apt-cache depends package 了解使用该包依赖那些包 sudo apt-cache rdepends package 查看该包被哪些包依赖 sudo apt-get source package 下载该包的源代码<br>sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包 sudo apt-get check 检查是否有损坏的依赖</p>
+</blockquote>
+<h4 id="5-2-deb包安装"><a href="#5-2-deb包安装" class="headerlink" title="5.2 deb包安装"></a>5.2 deb包安装</h4><blockquote>
+<p>安装deb软件包命令： sudo dpkg -i xxx.deb<br>删除软件包命令： sudo dpkg -r xxx.deb<br>连同配置文件一起删除命令： sudo dpkg -r –purge xxx.deb<br>查看软件包信息命令： sudo dpkg -info xxx.deb<br>查看文件拷贝详情命令： sudo dpkg -L xxx.deb<br>查看系统中已安装软件包信息命令： sudo dpkg -l<br>重新配置软件包命令： sudo dpkg-reconfigure xxx</p>
+</blockquote>
+<h4 id="5-3-原码安装"><a href="#5-3-原码安装" class="headerlink" title="5.3 原码安装"></a>5.3 原码安装</h4><ul>
+<li>解压缩源代码包</li>
+<li>cd dir</li>
+<li>./configure 检测文件是否缺失，创建Makefile,检测编译环境</li>
+<li>make 编译源码，生成库和可执行程序</li>
+<li>sudo make install 把库和可执行程序，安装到系统路径下</li>
+</ul>
+<h3 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h3><h4 id="6-1-mount"><a href="#6-1-mount" class="headerlink" title="6.1 mount"></a>6.1 mount</h4><p>命令格式：</p>
+<blockquote>
+<p>mount [-t vfstype] -o options device dir</p>
+</blockquote>
+<p>其中：</p>
+<ul>
+<li>-t vfstype 指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型。常 用类型有：</li>
+</ul>
+<p>光盘或光盘镜像：iso9660</p>
+<p>DOS fat16文件系统：msdos Windows 9x fat32文件系统：vfat Windows NT ntfs文件系统：ntfs</p>
+<p>Mount Windows文件网络共享：smbfs UNIX(LINUX) 文件网络共享：nfs</p>
+<ul>
+<li>-o options 主要用来描述设备或档案的挂接方式。常用的参数有： loop：用来把一个文件当成硬盘分区挂接上系统<br>ro：采用只读方式挂接设备<br>rw：采用读写方式挂接设备 iocharset：指定访问文件系统所用字符集</li>
+<li>device 要挂接(mount)的设备。</li>
+<li>dir设备在系统上的挂接点(mount point)。</li>
+</ul>
+<h5 id="6-1-1-挂接光盘镜像文件"><a href="#6-1-1-挂接光盘镜像文件" class="headerlink" title="6.1.1 挂接光盘镜像文件"></a>6.1.1 挂接光盘镜像文件</h5><p>由 于 近 年 来 磁 盘 技 术 的 巨 大 进 步， 新 的 电 脑 系 统 都 配 备 了 大 容 量 的 磁 盘 系 统， 在 Windows下许多人都习惯把软件和资料做成光盘镜像文件通过虚拟 光驱来使用。这样做有 许多好处：一、减轻了光驱的磨损;二、现在硬盘容量巨大存放几十个光盘镜像文件不成问 题，随用随调十分方便;三、硬盘的读取速度要远 远高于光盘的读取速度，CPU占用率大大 降低。其实linux系统下制作和使用光盘镜像比Windows系统更方便，不必借用任何第三方软 件包。</p>
+<p>1.从光盘制作光盘镜像文件。将光盘放入光驱，执行下面的命令。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /dev/cdrom /home/sunky/mydisk.iso</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/cdrom of=/home/sunky/mydisk.iso</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>执行上面的任何一条命令都可将当前光驱里的光盘制作成光盘镜像文件<code>/home/ sunky/mydisk.iso</code></p>
+<p>2.文件和目录制作成光盘镜像文件，执行下面的命令。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkisofs -r -J -V mydisk -o /home/sunky/mydisk.iso /home/sunky/ mydir</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>这条命令将/home/sunky/mydir目录下所有的目录和文件制作成光盘镜像文件<code>/ home/sunky/mydisk.iso</code>，光盘卷标为：mydisk</p>
+<p>3.光盘镜像文件的挂接(mount)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /mnt/vcdrom</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>建立一个目录用来作挂接点(mount point)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o loop -t iso9660 /home/sunky/mydisk.iso /mnt/vcdrom</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>使用/mnt/vcdrom就可以访问盘镜像文件mydisk.iso里的所有文件了。</p>
+<h5 id="6-1-2-挂载U盘"><a href="#6-1-2-挂载U盘" class="headerlink" title="6.1.2 挂载U盘"></a>6.1.2 挂载U盘</h5><p>1.检测存储设备名称</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>2.挂载存储设备sdb1到挂载点/mnt目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount /dev/sdb1 /mnt</span><br></pre></td></tr></table></figure>
+
+<p>3.访问/mnt</p>
+<p>4.卸载/mnt</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-2-umount"><a href="#6-2-umount" class="headerlink" title="6.2 umount"></a>6.2 umount</h4><p>卸载命令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount 挂在点</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-3-dd"><a href="#6-3-dd" class="headerlink" title="6.3 dd"></a>6.3 dd</h4><p><strong>dd:拷贝</strong></p>
+<p>例1：拷贝光碟(注意，你的光碟是标准的 iso9660格式才可以这么做)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/cdrom of=cdrom.iso</span><br></pre></td></tr></table></figure>
+
+<p>例2：将文件sfile拷贝到文件 dfile中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dd <span class="keyword">if</span>=sfile of=dfile</span><br></pre></td></tr></table></figure>
+
+<p>例3：创建一个100M的空文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=hello.txt bs=<span class="number">100</span>M count=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>/dev/null</strong>，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！</p>
+<p><strong>/dev/zero</strong>,是一个输入设备，你可你用它来初始化文件,从里面读出来的数据都是0。</p>
+<h3 id="压缩包管理"><a href="#压缩包管理" class="headerlink" title="压缩包管理"></a>压缩包管理</h3><h4 id="7-1-tar"><a href="#7-1-tar" class="headerlink" title="7.1 tar"></a>7.1 tar</h4><p><strong>tar [主选项+辅选项]</strong> 文件或者目录 tar可以为文件和目录创建档案。</p>
+<p>利用tar命令用户可以为某一特定文件创建档案（备份文件），也可以在档案中改变文件，或者向档案中加入新的文件。使用该命令时，主选项是 必须要有的，辅选项是辅助使用的，可以选用。</p>
+<p>主选项包括：</p>
+<ul>
+<li>c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。</li>
+<li>r 把要存档的文件追加到档案文件的未尾。</li>
+<li>t 列出档案文件的内容，查看已经备份了哪些文件。</li>
+<li>u 更新文件。用新增的文件取代原备份文件，如果在备份文件中找不到要更新的文件，则把它追加到备份文件的最 后。</li>
+<li>x 从档案文件中释放文件。（常用）</li>
+</ul>
+<p>辅选项包括：</p>
+<ul>
+<li>f 使用档案文件或设备，这个选项通常是必选的。（常用） k 保存已经存在的文件。</li>
+<li>m 在还原文件时，把所有文件的修改时间设定为现在。 M 创建多卷的档案文件，以便在几个磁盘中存放。</li>
+<li>v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。（常用） w 每一步都要求确认。</li>
+<li>z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压 缩。（常用）</li>
+<li>j 用bzip2来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压 缩。（常用）</li>
+</ul>
+<p>要将文件备份到一个特定的设备，只需把设备名作为备份文件名。 打包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar cvf dir.tar dir tar xvf dir.tar dir</span><br></pre></td></tr></table></figure>
+
+<p>打gz压缩包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zcvf dir.tar.gz dir tar zxvf dir.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>打bz2压缩包:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar jcvf dir.tar.bz2 dir tar jxvf dir.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<p>指定目录解压缩：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf dir.tar.gz -C ~/test</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-rar"><a href="#7-2-rar" class="headerlink" title="7.2 rar"></a>7.2 rar</h4><p>打包：把dir压缩成newdir.rar</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rar a -r newdir dir</span><br></pre></td></tr></table></figure>
+
+<p>解包：把newdir.rar解压缩到当前目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unrar x newdir.rar</span><br></pre></td></tr></table></figure>
+
+<p>####7.3zip<br>打包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r dir.zip dir</span><br></pre></td></tr></table></figure>
+
+<p>解包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip dir.zip</span><br></pre></td></tr></table></figure>
+
+<h3 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h3><h4 id="8-1-who"><a href="#8-1-who" class="headerlink" title="8.1 who"></a>8.1 who</h4><p>查看当前在线上的用户情况。所有的选项都是可选的，不使用任何选项时，who命令将 显示以下三项内容：</p>
+<p><strong>login name：登录用户名； terminal line：使用终端设备； login time：登录到系统的时间。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sihai<span class="meta">@ubuntu</span>:~/demo$ who -uH</span><br><span class="line">名称    线路    时间    空闲    进程号 备注 sihai tty2    <span class="number">2014</span>-<span class="number">08</span>-<span class="number">14</span> <span class="number">13</span>:<span class="number">31</span>        .    <span class="number">6798</span></span><br><span class="line">sihai tty7    <span class="number">2014</span>-<span class="number">08</span>-<span class="number">14</span> <span class="number">01</span>:<span class="number">31</span> 旧    <span class="number">2423</span></span><br><span class="line">sihai pts/<span class="number">1</span>    <span class="number">2014</span>-<span class="number">08</span>-<span class="number">14</span> <span class="number">01</span>:<span class="number">31</span> <span class="number">12</span>:<span class="number">00</span>    <span class="number">2843</span> (:<span class="number">0</span>)</span><br><span class="line">sihai pts/<span class="number">3</span>    <span class="number">2014</span>-<span class="number">08</span>-<span class="number">14</span> <span class="number">10</span>:<span class="number">39</span>    .    <span class="number">2843</span> (:<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>####8.2 ps</p>
+<blockquote>
+<p>ps [选项]</p>
+</blockquote>
+<p>ps命令用于监控后台进程的工作情况，因为后台进程是不和屏幕键盘这些标准输入/输 出设备进行通信的，所以如果需要检测其情况，便可以使用ps命令了。选项部分如下：</p>
+<ul>
+<li><p>-e 显示所有进程。</p>
+</li>
+<li><p>-f 全格式。</p>
+</li>
+<li><p>-h 不显示标题。</p>
+</li>
+<li><p>-l 长格式。</p>
+</li>
+<li><p>-w 宽输出。</p>
+</li>
+<li><p>a 显示终端上的所有进程，包括其他用户的进程。 r 只显示正在运行的进程。</p>
+</li>
+<li><p>x 显示没有控制终端的进程。</p>
+</li>
+</ul>
+<p>这个命令参数有很多，但一般的用户只需掌握一些最常用的命令参数就可以了。</p>
+<p>最常用的三个参数是<code>u、a、x</code>， 我们首先以root身份登录系统，查看当前进程状况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sihai<span class="meta">@ubuntu</span>:~$ ps aux</span><br><span class="line">USER    PID %CPU %MEM    VSZ    RSS TTY    STAT START    TIME COMMAND</span><br><span class="line">root    <span class="number">1</span> <span class="number">0.0</span> <span class="number">0.0</span>    <span class="number">3672</span>    <span class="number">2008</span> ?    Ss    <span class="number">08</span>:<span class="number">46</span>    <span class="number">0</span>:<span class="number">01</span> /sbin/init</span><br><span class="line"></span><br><span class="line">sihai<span class="meta">@ubuntu</span>:~$ ps ajx</span><br><span class="line">PPID    PID PGID    SID TTY    TPGID STAT    UID    TIME COMMAND <span class="number">4592</span> <span class="number">6948</span> <span class="number">6948</span> <span class="number">4592</span> pts/<span class="number">3</span>        <span class="number">6948</span> R+    <span class="number">1000</span>    <span class="number">0</span>:<span class="number">00</span> ps ajx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sihai<span class="meta">@ubuntu</span>:~$ ps -Lf <span class="number">2423</span></span><br><span class="line">UID    PID PPID    LWP C NLWP STIME TTY    STAT    TIME CMD</span><br><span class="line"><span class="number">1000</span>    <span class="number">2423</span> <span class="number">2282</span> <span class="number">2423</span> <span class="number">0</span>    <span class="number">4</span> <span class="number">08</span>:<span class="number">46</span> ?    Ssl    <span class="number">0</span>:<span class="number">00</span> gnome-session --session=ubuntu</span><br><span class="line"><span class="number">1000</span>    <span class="number">2423</span> <span class="number">2282</span> <span class="number">2465</span> <span class="number">0</span>    <span class="number">4</span> <span class="number">08</span>:<span class="number">46</span> ?    Ssl    <span class="number">0</span>:<span class="number">00</span> gnome-session --session=ubuntu</span><br><span class="line"><span class="number">1000</span>    <span class="number">2423</span> <span class="number">2282</span> <span class="number">2466</span> <span class="number">0</span>    <span class="number">4</span> <span class="number">08</span>:<span class="number">46</span> ?    Ssl    <span class="number">0</span>:<span class="number">00</span> gnome-session --session=ubuntu</span><br><span class="line"><span class="number">1000</span>    <span class="number">2423</span> <span class="number">2282</span> <span class="number">2468</span> <span class="number">0</span>    <span class="number">4</span> <span class="number">08</span>:<span class="number">46</span> ?    Ssl    <span class="number">0</span>:<span class="number">00</span> gnome-session --session=ubuntu</span><br></pre></td></tr></table></figure>
+
+<p>Head标头：</p>
+<blockquote>
+<p>USER 用户名<br>UID 用户ID（User ID）<br>PID 进程ID（Process ID）<br>PPID 父进程的进程ID（Parent Process id） SID 会话ID（Session id）<br>%CPU 进程的cpu占用率<br>%MEM 进程的内存占用率<br>VSZ 进程所使用的虚存的大小（Virtual Size）<br>RSS 进程使用的驻留集大小或者是实际内存的大小，Kbytes字节。 TTY 与进程关联的终端（tty）<br>STAT 进程的状态：进程状态使用字符表示的（STAT的状态码）<br>R 运行 Runnable (on run queue) 正在运行或在运行队列中等待。<br>S 睡眠 Sleeping 休眠中, 受阻, 在等待某个条件的形成或接受到信号。 I 空闲 Idle<br>Z 僵死 Zombie（a defunct process) 进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调 用后释放。<br>D 不可中断 Uninterruptible sleep (ususally IO) 收到信号不唤醒和不可运行, 进程必须等待直到有中 断发生。<br>T 停止 Terminate 进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行。 P 等待交换页<br>W 无驻留页 has no resident pages 没有足够的记忆体分页可分配。 X 死掉的进程<br>&lt; 高优先级进程 高优先序的进程<br>N 低优先 级进程 低优先序的进程<br>L 内存锁页 Lock 有记忆体分页分配并缩在记忆体内 s 进程的领导者（在它之下有子进程）；<br>l 多进程的（使用 CLONE_THREAD, 类似 NPTL pthreads）</p>
+<ul>
+<li>位于后台的进程组<br>START 进程启动时间和日期 TIME 进程使用的总cpu时间<br>COMMAND 正在执行的命令行命令 NI 优先级(Nice)<br>PRI 进程优先级编号(Priority)<br>WCHAN 进程正在睡眠的内核函数名称；该函数的名称是从/root/system.map文件中获得的。 FLAGS 与进程相关的数字标识</li>
+</ul>
+</blockquote>
+<h4 id="8-4-fg"><a href="#8-4-fg" class="headerlink" title="8.4 fg"></a>8.4 fg</h4><blockquote>
+<p>fg [job…]</p>
+</blockquote>
+<p>把指定的后台作业或挂起作业移到前台运行。 参数job是一个或多个进程的PID，或者 是命令名称，或者是作业号（作业号前面要带一个%号）。</p>
+<p>通常在shell中输入命令启动进程后，如果该进程需要与用户交互，那么此后用户的键 盘输入都被该进程读取，直到该进程退出后才出现shell提示符$，这种进程为前台进程。</p>
+<p>如果在命令行的末尾加上&amp;字符，则shell为这个命令创建一个后台进程，它虽然也可以 输出到屏幕，但是不能读取键盘输入，不管执行命令的进程有没有退出都立刻回到shell提 示符接受下一条命令的输入。如果该进程也需要读取键盘输入，则被挂起等待直到用户用fg 命令把它变成前台进程。如果一个命令需要较长的处理时间并且不需要与用户交互，就适合 把它放在后台执行。</p>
+<h4 id="8-5-bg"><a href="#8-5-bg" class="headerlink" title="8.5 bg"></a>8.5 bg</h4><blockquote>
+<p>bg [job…]</p>
+</blockquote>
+<p>把被挂起的进程提到后台执行。 其中，job是一个或多个进程的PID、命令名称或者作 业号，在参数前要带%号。</p>
+<h4 id="8-6-kill"><a href="#8-6-kill" class="headerlink" title="8.6 kill"></a>8.6 kill</h4><p>向指定进程发送信号</p>
+<blockquote>
+<p>kill [ -signal | -s signal ] pid …</p>
+</blockquote>
+<p>查看信号编号</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -l [ signal ]</span><br></pre></td></tr></table></figure>
+
+<p>给一个进程发信号，或终止一个进程的运行。</p>
+<p>kill命令如果不带参数而直接跟pid，就是发给该进程SIGTERM信号，大部分进程收到该 信号就会终止。但是被挂起的进程不能处理信号，所以必须发SIGKILL信号，由系统强制终 止进程。</p>
+<h4 id="8-7env"><a href="#8-7env" class="headerlink" title="8.7env"></a>8.7env</h4><p>查看当前进程环境变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>vim ∼/.bashrc 配置当前用户环境变量</li>
+<li>vim /etc/profile 配置系统环境变量,配置时需要有root权限</li>
+</ul>
+<h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><h4 id="9-1-创建用户"><a href="#9-1-创建用户" class="headerlink" title="9.1 创建用户"></a>9.1 创建用户</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -s /bin/bash -g sihai -d /home/sihai -m sihai sudo useradd -s /bin/sh -g group -G adm,root xwp</span><br></pre></td></tr></table></figure>
+
+<p>此命令新建了一个用户xwp，该用户的登录Shell是/bin/sh，他属于group用户组，同时 又属于adm和root用户组，其中group用户组是其主组。</p>
+<ul>
+<li><p>-s 指定新用户登陆时shell类型</p>
+</li>
+<li><p>-g 指定所属组，该组必须已经存在</p>
+</li>
+<li><p>-G 指定附属组，该组必须已经存在</p>
+</li>
+<li><p>-d 用户家目录</p>
+</li>
+<li><p>-m 用户家目录不存在时，自动创建该目录</p>
+</li>
+</ul>
+<h4 id="9-2-设置用户组"><a href="#9-2-设置用户组" class="headerlink" title="9.2 设置用户组"></a>9.2 设置用户组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd sihai</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-3-设置密码"><a href="#9-3-设置密码" class="headerlink" title="9.3 设置密码"></a>9.3 设置密码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd sihai</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-4-切换用户"><a href="#9-4-切换用户" class="headerlink" title="9.4 切换用户"></a>9.4 切换用户</h4><blockquote>
+<p>su 用户名</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su sihai</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-5-root用户"><a href="#9-5-root用户" class="headerlink" title="9.5 root用户"></a>9.5 root用户</h4><p>变成root用户</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+<p>设置root密码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-6-删除用户"><a href="#9-6-删除用户" class="headerlink" title="9.6 删除用户"></a>9.6 删除用户</h4><blockquote>
+<p>userdel 选项 用户名</p>
+</blockquote>
+<p>常用的选项是-r，他的作用是把用户的主目录一起删除。 例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo userdel -r sihai</span><br></pre></td></tr></table></figure>
+
+<p>此命令删除用户sihai在系统文件（主要是/etc/passwd，/etc/shadow，/etc/ group等）中的记录，同时删除用户的主目录。</p>
+<h3 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h3><h4 id="10-1-ifconfig"><a href="#10-1-ifconfig" class="headerlink" title="10.1 ifconfig"></a>10.1 ifconfig</h4><p>1.查看网卡信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+<p>2.关闭网卡</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig eth0 down</span><br></pre></td></tr></table></figure>
+
+<p>3.开启网卡eth0</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig eth0 up</span><br></pre></td></tr></table></figure>
+
+<p>4.给eth0配置临时IP</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ifconfig eth0 IP</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-2ping"><a href="#10-2ping" class="headerlink" title="10.2ping"></a>10.2ping</h4><blockquote>
+<p>ping [选项] 主机名/IP地址</p>
+</blockquote>
+<p>查看网络上的主机是否在工作。它向该主机发送ICMP ECHO_REQUEST包。有时我们想从网络上的某台主机上下载文件，可是又不知道那台主机是否开着，就需要使用ping命令查看。</p>
+<p>命令中各选项的含义如下：</p>
+<blockquote>
+<p>-c 数目 在发送指定数目的包后停止。<br>-d 设定SO_DEBUG的选项。<br>-f 大量且快速地送网络封包给一台机器，看它的回应。<br>-I 秒数 设定间隔几秒送一个网络封包给一台机器，预设值是一秒送一次。<br>-l 次数 在指定次数内，以最快的方式送封包数据到指定机器（只有超级用户可以使用此选项）。<br>-q 不显示任何传送封包的信息，只显示最后的结果。<br>-r 不经由网关而直接送封包到一台机器，通常是查看本机的网络接口是否有问题。<br>-s 字节数 指定发送的数据字节数，预设值是56，加上8字节的ICMP头，一共是64ICMP数据字节。</p>
+</blockquote>
+<h4 id="10-3netstat"><a href="#10-3netstat" class="headerlink" title="10.3netstat"></a>10.3netstat</h4><blockquote>
+<p>netstat [选项]</p>
+</blockquote>
+<p>显示网络连接、路由表和网络接口信息，可以让用户得知目前都有哪些网络连接正在运 作。命令中各选项的含义如下：</p>
+<blockquote>
+<p>-a 显示所有socket，包括正在监听的。<br>-c 每隔1秒就重新显示一遍，直到用户中断它。<br>-i 显示所有网络接口的信息，格式同“ifconfig -e”。<br>-n 以网络IP地址代替名称，显示出网络连接情形。<br>-r 显示核心路由表，格式同“route -e”。<br>-t 显示TCP协议的连接情况。<br>-u 显示UDP协议的连接情况。<br>-v 显示正在进行的工作。</p>
+</blockquote>
+<p>####10.4nslookup</p>
+<blockquote>
+<p>nslookup name</p>
+</blockquote>
+<p>查询一台机器的IP地址和其对应的域名。它通常需要一台域名服务器来提供域名服务。 如果用户已经设置好域名服务器，就可以用这个命令查看不同主机的IP地址对应的域名。</p>
+<p>不带参数使用nslookup命令时，出现提示符“&gt;”，在后面输入要查询的IP地址或域名 并回车即可。如果要退出该命令，输入exit并回车即可。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sihai<span class="meta">@ubuntu</span>:~$ nslookup</span><br><span class="line">&gt; www.sihai.cn</span><br><span class="line">Server:    <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">Address:    127.0.0.1#53</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-5-finger"><a href="#10-5-finger" class="headerlink" title="10.5 finger"></a>10.5 finger</h4><p><code>finger [-lmsp] user [user@host …]</code> 查询用户的信息，通常会显示系统中某个用 户的用户名、主目录、停滞时间、登录时间、登录shell等信息。如果要查询远程机上的用 户信息，需要在用户名后面接“@主机名”，采用[用户名@主机名]的格式，不过要查询的网 络主机需要运行finger守护进程。</p>
+<p>命令中各选项的含义如下：</p>
+<blockquote>
+<p>-s 显示用户的注册名、实际姓名、终端名称、写状态、停滞时间、登录时间等信息。<br>-l 除了用-s选项显示的信息外，还显示用户主目录、登录shell、邮件状态等信息，以 及用户主目录下的.plan、.project和.forward文件的内容。<br>-p 除了不显示.plan文件和.project文件以外，与-l选项相同。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sihai<span class="meta">@ubuntu</span>:~$ finger sihai</span><br><span class="line">Login: sihai    Name: sihai</span><br><span class="line">Directory: /home/sihai    Shell: /bin/bash</span><br><span class="line">On since Mon Sep <span class="number">8</span> <span class="number">08</span>:<span class="number">55</span> (CST) on tty7    <span class="number">14</span> hours <span class="number">48</span> minutes idle On since Mon Sep <span class="number">8</span> <span class="number">21</span>:<span class="number">57</span> (CST) on pts/<span class="number">1</span> from :<span class="number">0</span></span><br><span class="line"><span class="number">11</span> minutes <span class="number">18</span> seconds idle</span><br><span class="line">On since Mon Sep <span class="number">8</span> <span class="number">23</span>:<span class="number">12</span> (CST) on pts/<span class="number">2</span> from :<span class="number">0</span> <span class="number">6</span> seconds idle</span><br><span class="line">No mail. No Plan.</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用服务器构建"><a href="#常用服务器构建" class="headerlink" title="常用服务器构建"></a>常用服务器构建</h3><h4 id="11-1-ftp"><a href="#11-1-ftp" class="headerlink" title="11.1 ftp"></a>11.1 ftp</h4><h5 id="11-1-1ftp服务器"><a href="#11-1-1ftp服务器" class="headerlink" title="11.1.1ftp服务器"></a>11.1.1ftp服务器</h5><p>1.安装vsftpd服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
+
+<p>2.配置vsftpd.conf文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/vsftpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加下面设置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=YES </span><br><span class="line">anon_root=/home/sihai/ftp </span><br><span class="line">no_anon_password=YES </span><br><span class="line">write_enable=YES </span><br><span class="line">anon_upload_enable=YES </span><br><span class="line">anon_mkdir_write_enable=YES </span><br><span class="line">anon_umask=<span class="number">0022</span></span><br></pre></td></tr></table></figure>
+
+<p>3.重启服务器，重新加载/etc/vsftpd.conf配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ubuntu12<span class="number">.04</span>下</span><br><span class="line">sudo /etc/init.d/vsftpd restart</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ubuntu14<span class="number">.04</span>下</span><br><span class="line">sudo /lib/init/upstart-job vsftpd restart</span><br></pre></td></tr></table></figure>
+
+<p>4.进入你的/home/sihai/ftp目录下创建一个空目录，供用户上传</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/ftp</span><br><span class="line"></span><br><span class="line">mkdir anonymous chmod <span class="number">777</span> anonymous</span><br></pre></td></tr></table></figure>
+
+<p>5.测试上传功能，登陆ftp服务器，进入到anonymous目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ftp IP</span><br><span class="line">cd anonymous</span><br></pre></td></tr></table></figure>
+
+<p>6.上传命令，可以把你当前目录下的文件上传到ftp服务器的anonymous目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">put somefile </span><br><span class="line">get somefile</span><br></pre></td></tr></table></figure>
+
+<h5 id="11-1-2-ftp客户端"><a href="#11-1-2-ftp客户端" class="headerlink" title="11.1.2 ftp客户端"></a>11.1.2 ftp客户端</h5><p>Ubuntu 默认已经安装ftp客户端</p>
+<h5 id="11-1-3-lftp客户端"><a href="#11-1-3-lftp客户端" class="headerlink" title="11.1.3 lftp客户端"></a>11.1.3 lftp客户端</h5><p>lftp 也 是 一 种 ftp 客 户 程 序。 它 是 以 文 本 方 式 操 作 的， 但 是 比 起 图 形 界 面 更 为 方 便。lftp几乎具有bash的所有方便功能，Tab 补全，bookmark, queue, 后台下载等可以 得到支持。用法与ftp类似，主要的指令如下：</p>
+<blockquote>
+<p>put 上传文件<br>mput 上传多个文件 get 下载文件<br>mget 下载多个文件<br>mirror 下载整个目录及其子目录 mirror –R 上传整个目录及其子目录<br>!command 调用本地shell执行命令command</p>
+</blockquote>
+<p><strong>注意</strong>，有的发行版可能缺省没有安装lftp工具，需要用户自己安装。如果是Debian或 Ubuntu系统，则安装lftp软件包。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lftp</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-2-nfs"><a href="#11-2-nfs" class="headerlink" title="11.2 nfs"></a>11.2 nfs</h4><p>1.安装nfs服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-kernel-server</span><br></pre></td></tr></table></figure>
+
+<p>2.设置/etc/exports配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/<span class="keyword">exports</span></span><br></pre></td></tr></table></figure>
+
+<p>添加这行配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/用户名/nfs    *(rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure>
+
+<p>3.在用户目录下创建nfs目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/用户名/nfs</span><br></pre></td></tr></table></figure>
+
+<p>4.重启服务器，重新加载配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nfs-kernel-server restart</span><br></pre></td></tr></table></figure>
+
+<p>5.在/home/用户名/nfs目录下创建测试文件hello</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/用户名/nfs touch hello</span><br></pre></td></tr></table></figure>
+
+<p>6.测试服务器，把服务器共享目录nfs挂在到/mnt节点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t nfs -o nolock -o tcp IP:/home/用户名/nfs /mnt</span><br></pre></td></tr></table></figure>
+
+<p>7.进入/mnt目录可以看到hello文件，表示构建成功</p>
+<p>8.卸载网络共享目录</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-3ssh"><a href="#11-3ssh" class="headerlink" title="11.3ssh"></a>11.3ssh</h4><p>1.安装ssh服务器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<p>2.远程登陆</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh 用户名<span class="meta">@IP</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其它命令"><a href="#其它命令" class="headerlink" title="其它命令"></a>其它命令</h3><h4 id="12-1-终端翻页"><a href="#12-1-终端翻页" class="headerlink" title="12.1 终端翻页"></a>12.1 终端翻页</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Shift-pageup </span><br><span class="line">Shift-pagedown</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-2-man"><a href="#12-2-man" class="headerlink" title="12.2 man"></a>12.2 man</h4><p>看手册(叫做manual或man page)。每一个命令和系统函数都有自己的man page。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man man</span><br><span class="line">man read</span><br></pre></td></tr></table></figure>
+
+<p>查看read命令的man page</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man <span class="number">2</span> read</span><br></pre></td></tr></table></figure>
+
+<p>查看read系统函数的man page(在第二个section中，表示为read(2)) man -k read 以read为关键字查找相关的man page</p>
+<h4 id="12-3-clear"><a href="#12-3-clear" class="headerlink" title="12.3 clear"></a>12.3 clear</h4><p>清屏。使光标和提示符回到屏幕第一行。</p>
+<p>快捷键：<code>Ctrl-l</code></p>
+<p>####12.4 alias<br><code>alias [-p] name=value …</code> 将 value 字 符 串 起 个 别 名 叫 name， 以 后 在 命 令 行 输 入 name，shell 自 动 将 其 解 释 为value，如果不带参数执行本命令，或以参数-p执行，则显示当前定义的别名列表。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ alias</span><br><span class="line">alias ls=<span class="string">'ls --color=auto'</span> alias rm=<span class="string">'rm -i'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="12-5-echo"><a href="#12-5-echo" class="headerlink" title="12.5 echo"></a>12.5 echo</h4><blockquote>
+<p>echo [-n] 字符串</p>
+</blockquote>
+<p>在显示器上显示一段文字，一般起到一个提示的作用。其中选项n表示输出文字后不换 行；字符串可以加引号，也可以不加引号。用echo命令输出加引号的字符串时，将字符串原 样输出；用echo命令输出不加引号的字符串时，将字符串中的各个单词作为字符串输出，各 字符串之间用一个空格分割。</p>
+<p>查看上一个程序退出数值，正常情况程序退出值是0</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $?</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-6-date"><a href="#12-6-date" class="headerlink" title="12.6 date"></a>12.6 date</h4><p>查看当前时间</p>
+<h4 id="12-7-umask"><a href="#12-7-umask" class="headerlink" title="12.7 umask"></a>12.7 umask</h4><blockquote>
+<p>umask [-p] -S [mode]</p>
+</blockquote>
+<p>umask指定用户创建文件时的掩码，其中的mode和chmod的命令中的格式一样。如果不用 mode参数，则显示当前的umask设置。如果用-S参数，则以符号形式显示设置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ umask <span class="number">0022</span></span><br><span class="line">$ umask -S u=rwx,g=rx,o=rx</span><br></pre></td></tr></table></figure>
+
+<p>比如该用户touch或gedit创建一个文件，则其默认权限为<code>-rw-r-r–</code>，如果该用户创 建一个可执行文件(比如编译生成的程序)，则其默认权限为<code>-rwxr-xr-x</code>。也就是说，由于 umask的设定，创建的文件默认是不具有g的w权限和o的w权限的，除非用chmod更改权限。</p>
+<h4 id="12-8-创建终端"><a href="#12-8-创建终端" class="headerlink" title="12.8 创建终端"></a>12.8 创建终端</h4><p>创建终端标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + t</span><br></pre></td></tr></table></figure>
+
+<p>切换标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alt+n（n=<span class="number">1</span>）</span><br></pre></td></tr></table></figure>
+
+<p>新开终端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + Shift + n</span><br></pre></td></tr></table></figure>
+
+<h3 id="关机重启"><a href="#关机重启" class="headerlink" title="关机重启"></a>关机重启</h3><p>关机重启这些操作都需要有root权限</p>
+<h4 id="13-1-poweroff"><a href="#13-1-poweroff" class="headerlink" title="13.1 poweroff"></a>13.1 poweroff</h4><h4 id="13-2-shutdown"><a href="#13-2-shutdown" class="headerlink" title="13.2 shutdown"></a>13.2 shutdown</h4><blockquote>
+<p>shutdown -t 秒数 [-rkhncfF] 时间 [警告讯息]</p>
+</blockquote>
+<p>选项：</p>
+<blockquote>
+<p>-t 秒数 : 设定在切换至不同的runlevel之前, 警告和删除二讯号之间的延迟时间(秒).<br>-k : 仅送出警告讯息文字, 但不是真的要 shutdown.<br>-r : shutdown 之後重新开机<br>-h : shutdown 之後关机.<br>-n : 不经过 init , 由 shutdown 指令本身来做关机动作.(不建议你用)<br>-f : 重新开机时, 跳过 fsck 指令, 不检查档案系统.<br>-F : 重新开机时, 强迫做 fsck 检查.<br>-c : 将已经正在 shutdown 的动作取消.</p>
+</blockquote>
+<p>例子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now 立刻重新开机 shutdown -h now 立刻关机</span><br><span class="line">shutdown -k now <span class="string">'Hey! Go away! now....'</span> 发出警告讯息, 但没有真的关机 shutdown -t3 -r now 立刻重新开机, 但在警告和删除processes 之间, 延迟<span class="number">3</span>秒钟. shutdown -h <span class="number">10</span>:<span class="number">42</span> <span class="string">'Hey! Go away!'</span> <span class="number">10</span>:<span class="number">42</span> 分关机</span><br><span class="line">shutdown -r <span class="number">10</span> <span class="string">'Hey! Go away!'</span> <span class="number">10</span> 分钟後关机</span><br><span class="line">shutdown -c 将刚才下的 shutdown 指令取消,必须切换至其它tty, 登入之後, 才能下此一指令. shutdown now 切换至单人操作模式(不加任何选项时)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项:</strong><br>时间参数务必要加: 不是用 now, 便是用 hh:mm 或 mm now 其实就是 0 的意思.</p>
+<h4 id="13-3-reboot"><a href="#13-3-reboot" class="headerlink" title="13.3 reboot"></a>13.3 reboot</h4><h4 id="13-4-查看内核版本信息"><a href="#13-4-查看内核版本信息" class="headerlink" title="13.4 查看内核版本信息"></a>13.4 查看内核版本信息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-5-查看发行版信息"><a href="#13-5-查看发行版信息" class="headerlink" title="13.5 查看发行版信息"></a>13.5 查看发行版信息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-6-查看空闲内存"><a href="#13-6-查看空闲内存" class="headerlink" title="13.6 查看空闲内存"></a>13.6 查看空闲内存</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
+
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><h4 id="16-1-vi简介"><a href="#16-1-vi简介" class="headerlink" title="16.1 vi简介"></a>16.1 vi简介</h4><p>vi是“Visual interface”的简称，它在Linux上的地位就仿佛Edit程序在DOS上一样。 它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需 要对其进行定制。Vi不是一个排版程序，它不象Word或WPS那样可以对字体、格式、段落等 其他属性进行编排，它只是一个文本编辑程序。 vi没有菜单，只有命令，且命令繁多。</p>
+<p>Vi有三种基本工作模式：</p>
+<ul>
+<li>命令模式</li>
+<li>文本输入模式</li>
+<li>末行模式。</li>
+</ul>
+<h5 id="16-1-1-命令行模式"><a href="#16-1-1-命令行模式" class="headerlink" title="16.1.1 命令行模式"></a>16.1.1 命令行模式</h5><p>任何时候，不管用户处于何种模式，只要按一下ESC键，即可使Vi进入命令模式；我们 在shell环境(提示符为$)下输入启动Vi命令，进入编辑器时，也是处于该模式下。在该模式 下，用户可以输入各种合法的Vi命令，用于管理自己的文档。此时从键盘上输入的任何字符 都被当做编辑命令来解释，若输入的字符是合法的Vi命令，则Vi在接受用户命令之后完成相 应的动作。但需注意的是，所输入的命令并不在屏幕上显示出来。若输入的字符不是Vi的合 法命令，Vi会响铃报警。</p>
+<h5 id="16-1-2-文本输入模式"><a href="#16-1-2-文本输入模式" class="headerlink" title="16.1.2 文本输入模式"></a>16.1.2 文本输入模式</h5><p>在命令模式下输入插入命令i、附加命令a 、打开命令o、修改命令c、取代命令r或替换 命令s都可以进入文本输入模式。在该模式下，用户输入的任何字符都被Vi当做文件内容保 存起来，并将其显示在屏幕上。在文本输入过程中，若想回到命令模式下，按键ESC即可。</p>
+<h5 id="16-1-3-末行模式"><a href="#16-1-3-末行模式" class="headerlink" title="16.1.3 末行模式"></a>16.1.3 末行模式</h5><p>末行模式也称ex转义模式。在命令模式下，用户按“:”键即可进入末行模式下，此时 Vi会在显示窗口的最后一行(通常也是屏幕的最后一行)显示一个“:”作为末行模式的提示 符，等待用户输入命令。多数文件管理命令都是在此模式下执行的(如把编辑缓冲区的内容 写到文件中等)。末行命令执行完后，Vi自动回到命令模式。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:sp newfile</span><br></pre></td></tr></table></figure>
+
+<p>则分出一个窗口编辑newfile文件。如果要从命令模式转换到编辑模式，可以键入命令a 或者i；如果需要从文本模式返回，则按Esc键即可。在命令模式下输入“:”即可切换到末 行模式，然后输入命令。</p>
+<h4 id="16-2-vim基础操作"><a href="#16-2-vim基础操作" class="headerlink" title="16.2 vim基础操作"></a>16.2 vim基础操作</h4><p>进入插入模式:</p>
+<blockquote>
+<p>i: 插入光标前一个字符 I: 插入行首<br>a: 插入光标后一个字符 A: 插入行未<br>o: 向下新开一行,插入行首 O: 向上新开一行,插入行首</p>
+</blockquote>
+<p>进入命令模式: ESC:从插入模式或末行模式进入命令模式 移动光标:</p>
+<blockquote>
+<p>h: 左移 j: 下移 k: 上移 l: 右移<br>M: 光标移动到中间行<br>L: 光标移动到屏幕最后一行行首 G: 移动到指定行,行号 -G<br>w: 向后一次移动一个字 b: 向前一次移动一个字<br>{: 按段移动,上移<br>}: 按段移动,下移 Ctr-d: 向下翻半屏 Ctr-u: 向上翻半屏 Ctr-f: 向下翻一屏 Ctr-b: 向上翻一屏<br>gg: 光标移动文件开头 G: 光标移动到文件末尾</p>
+</blockquote>
+<p>删除命令:</p>
+<blockquote>
+<p>x: 删除光标后一个字符,相当于 Del<br>X: 删除光标前一个字符,相当于 Backspace<br>dd: 删除光标所在行,n dd 删除指定的行数 D: 删除光标后本行所有内容,包含光标所在字符 d0: 删除光标前本行所有内容,不包含光标所在字符<br>dw: 删除光标开始位置的字,包含光标所在字符</p>
+</blockquote>
+<p>撤销命令:</p>
+<blockquote>
+<p>u: 一步一步撤销<br>U: 一次性撤销当前行所作的所有操作 Ctr-r: 反撤销</p>
+</blockquote>
+<p>重复命令:</p>
+<blockquote>
+<p>.: 重复上一次操作的命令</p>
+</blockquote>
+<p>文本行移动:</p>
+<ul>
+<li><blockquote>
+<blockquote>
+<p>: 文本行右移</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>&lt;&lt;: 文本行左移</p>
+</li>
+</ul>
+<p>复制粘贴:</p>
+<blockquote>
+<p>yy: 复制当前行,n yy 复制 n 行<br>p: 在光标所在位置向下新开辟一行,粘贴</p>
+</blockquote>
+<p>可视模式:</p>
+<blockquote>
+<p>v: 按字符移动,选中文本<br>V: 按行移动,选中文本可视模式可以配合 d, y, &gt;&gt;, &lt;&lt; 实现对文本块的删除,复制,左右移动</p>
+</blockquote>
+<p>替换操作:</p>
+<blockquote>
+<p>r: 替换当前字符<br>R: 替换当前行光标后的字符</p>
+</blockquote>
+<p>查找命令:</p>
+<blockquote>
+<p>/: str查找<br>n: 下一个<br>N：上一个</p>
+</blockquote>
+<p>替换命令： 把abc全部替换成123</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/abc/<span class="number">123</span>/g</span><br></pre></td></tr></table></figure>
+
+<p>代码排版:</p>
+<blockquote>
+<p>gg=G: 代码自动缩进排版</p>
+</blockquote>
+<h4 id="16-3-vim分屏操作"><a href="#16-3-vim分屏操作" class="headerlink" title="16.3 vim分屏操作"></a>16.3 vim分屏操作</h4><p>分屏操作:</p>
+<blockquote>
+<p>sp: 上下分屏,后可跟文件名<br>vsp: 左右分屏,后可跟文件名<br>Ctr+w+w: 在多个窗口切换</p>
+</blockquote>
+<p><strong>启动分屏</strong></p>
+<p>1.使用大写O参数进行垂直分屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim -On file1 file2 ...</span><br></pre></td></tr></table></figure>
+
+<p>2.使用小写o参数进行水平分屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim -on file1 file2 ...</span><br></pre></td></tr></table></figure>
+
+<p><strong>注:</strong> n是数字，表示分屏的数量,n要大于等于文件个数</p>
+<p><strong>关闭分屏</strong></p>
+<p>1.关闭当前窗口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w c</span><br></pre></td></tr></table></figure>
+
+<p>2.关闭当前窗口，如果只剩最后一个，则退出vim</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w q</span><br></pre></td></tr></table></figure>
+
+<p><strong>编辑中分屏</strong></p>
+<p>1.上下分割当前打开的文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w s</span><br></pre></td></tr></table></figure>
+
+<p>2.上下分割，并打开一个新的文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:sp filename</span><br></pre></td></tr></table></figure>
+
+<p>3.左右分割当前打开的文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w v</span><br></pre></td></tr></table></figure>
+
+<p>4.左右分割，并打开一个新的文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:vsp filename</span><br></pre></td></tr></table></figure>
+
+<p>分屏编辑中光标的移动 vi中的光标键是h,j,k,l,要在各个屏之间切换，只需要先按一下<code>ctrl+w</code></p>
+<p>1.把光标移动到上边的屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w k</span><br></pre></td></tr></table></figure>
+
+<p>2.把光标移动到下边的屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w j</span><br></pre></td></tr></table></figure>
+
+<p>3.把光标移动到右边的屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w l</span><br></pre></td></tr></table></figure>
+
+<p>4.把光标移动到左边的屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w h</span><br></pre></td></tr></table></figure>
+
+<p>5.把光标移动到下一个的屏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w w</span><br></pre></td></tr></table></figure>
+
+<p>移动分屏 1.向上移动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w K</span><br></pre></td></tr></table></figure>
+
+<p>2.向下移动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w J</span><br></pre></td></tr></table></figure>
+
+<p>3.向右移动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w L</span><br></pre></td></tr></table></figure>
+
+<p>4.向左移动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w H</span><br></pre></td></tr></table></figure>
+
+<p>屏幕尺寸</p>
+<p>1.增加高度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w +</span><br></pre></td></tr></table></figure>
+
+<p>2.减少高度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w -</span><br></pre></td></tr></table></figure>
+
+<p>3.让所有屏的高度一致</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w =</span><br></pre></td></tr></table></figure>
+
+<p>4.左加宽度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w &gt;</span><br></pre></td></tr></table></figure>
+
+<p>5.右加宽度</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w &lt;</span><br></pre></td></tr></table></figure>
+
+<p>6.右增加n宽 (如：n=30)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+w n &lt;</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/18/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%AC%94%E8%AE%B0/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">java面向对象笔记</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/17/SpringBoot%E7%BB%8F%E5%85%B8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="level-item">SpringBoot经典学习笔记</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="阿泽">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        阿泽
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            12
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/aze9420">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/06/%E4%B8%93%E4%B8%9A%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="专业英语学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-06T00:46:44.207Z">2020-03-06</time></div>
+                    <a href="/2020/03/06/%E4%B8%93%E4%B8%9A%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">专业英语学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/05/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-05T13:10:26.462Z">2020-03-05</time></div>
+                    <a href="/2020/03/05/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/04/%E7%BC%96%E8%AF%91%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译技术学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-04T09:14:59.986Z">2020-03-04</time></div>
+                    <a href="/2020/03/04/%E7%BC%96%E8%AF%91%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译技术学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工程学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-04T06:02:41.852Z">2020-03-04</time></div>
+                    <a href="/2020/03/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工程学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/02/java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="java反射机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-02T07:46:56.034Z">2020-03-02</time></div>
+                    <a href="/2020/03/02/java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java反射机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/06/%E4%B8%93%E4%B8%9A%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="专业英语学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-06T00:46:44.207Z">2020-03-06</time></div>
+                    <a href="/2020/03/06/%E4%B8%93%E4%B8%9A%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">专业英语学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/05/hello-world/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-05T13:10:26.462Z">2020-03-05</time></div>
+                    <a href="/2020/03/05/hello-world/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/04/%E7%BC%96%E8%AF%91%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译技术学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-04T09:14:59.986Z">2020-03-04</time></div>
+                    <a href="/2020/03/04/%E7%BC%96%E8%AF%91%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译技术学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="软件工程学习笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-04T06:02:41.852Z">2020-03-04</time></div>
+                    <a href="/2020/03/04/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">软件工程学习笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/03/02/java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="java反射机制">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-02T07:46:56.034Z">2020-03-02</time></div>
+                    <a href="/2020/03/02/java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">java反射机制</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="linux学习笔记" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 阿泽&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/aze9420">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://yoursite.com',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
