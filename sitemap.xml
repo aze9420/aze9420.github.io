@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://aze9420/gitbub.io/2020/03/05/hello-world/</loc>
+    <loc>http://aze9420/gitbub.io/about/index.html</loc>
     
-    <lastmod>2020-03-05T13:10:26.462Z</lastmod>
+    <lastmod>2020-03-07T05:52:52.118Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://aze9420/gitbub.io/2020/03/07/github%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    
+    <lastmod>2020-03-07T05:01:18.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://aze9420/gitbub.io/404/index.html</loc>
+    
+    <lastmod>2020-03-07T04:10:09.278Z</lastmod>
     
   </url>
   
