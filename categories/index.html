@@ -20,10 +20,10 @@
 <meta property="og:image" content="http://aze9420/images/og_image.png">
 <meta property="article:author" content="阿泽">
 <meta property="article:tag" content="github">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="markdown">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://aze9420/images/og_image.png">
 
@@ -131,16 +131,26 @@
     </div>
 </nav>
     
-    
- # 新增 col() 函数
 
 
-# 修改 section ，将 main_column_class() 改为 col()
+
+
+
 <section class="section">
     <div class="container">
         <div class="columns">
-            <!-- 将 main_column_class() 改为 col() -->
-            <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+          
+            <div class="column function main_column_class() {
+        switch (column_count()) {
+            case 1:
+                return &#39;is-12&#39;;
+            case 2:
+                return &#39;is-8-tablet is-8-desktop is-8-widescreen&#39;;
+            case 3:
+                return &#39;is-8-tablet is-8-desktop is-6-widescreen&#39;
+        }
+        return &#39;&#39;;
+    } has-order-2 column-main">
 <div class="card widget">
     <div class="card-content">
         <div class="menu">

@@ -129,16 +129,26 @@
     </div>
 </nav>
     
-    
- # 新增 col() 函数
 
 
-# 修改 section ，将 main_column_class() 改为 col()
+
+
+
 <section class="section">
     <div class="container">
         <div class="columns">
-            <!-- 将 main_column_class() 改为 col() -->
-            <div class="column is-6-tablet is-6-desktop is-9-widescreen has-order-2 column-main">
+          
+            <div class="column function main_column_class() {
+        switch (column_count()) {
+            case 1:
+                return &#39;is-12&#39;;
+            case 2:
+                return &#39;is-8-tablet is-8-desktop is-8-widescreen&#39;;
+            case 3:
+                return &#39;is-8-tablet is-8-desktop is-6-widescreen&#39;
+        }
+        return &#39;&#39;;
+    } has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
