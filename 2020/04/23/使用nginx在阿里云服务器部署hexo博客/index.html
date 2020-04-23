@@ -7,20 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档 - Alan&#39;s blog</title>
+<title>使用nginx在阿里云服务器部署hexo博客 - Alan&#39;s blog</title>
 
 
-    <meta name="description" content="你走的每一步都算数">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alan&#39;s blog">
-<meta property="og:url" content="http://aze9420/gitbub.io/archives/index.html">
+    <meta name="description" content="nginx安装部署">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用nginx在阿里云服务器部署hexo博客">
+<meta property="og:url" content="http://aze9420/gitbub.io/2020/04/23/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Alan&#39;s blog">
-<meta property="og:description" content="你走的每一步都算数">
+<meta property="og:description" content="nginx安装部署">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://aze9420/images/og_image.png">
+<meta property="og:image" content="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423014028351.png">
+<meta property="article:published_time" content="2020-04-23T05:10:50.000Z">
+<meta property="article:modified_time" content="2020-04-23T05:50:44.188Z">
 <meta property="article:author" content="ALAN">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://aze9420/images/og_image.png">
+<meta name="twitter:image" content="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423014028351.png">
 
 
 
@@ -80,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Alan&#39;s blog" height="28">
+                <img src="/images/logo.svg" alt="使用nginx在阿里云服务器部署hexo博客" height="28">
             
             </a>
         </div>
@@ -91,7 +94,7 @@
                 <a class="navbar-item"
                 href="/">首页</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/archives">归档</a>
                 
                 <a class="navbar-item"
@@ -130,287 +133,161 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423014028351.png" alt="使用nginx在阿里云服务器部署hexo博客">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-23T05:10:50.000Z">2020-04-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/nginx%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/">nginx安装部署</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 714 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                使用nginx在阿里云服务器部署hexo博客
+            
+        </h1>
+        <div class="content">
+            <p><strong>nginx安装部署</strong></p>
+<a id="more"></a>
+
+<p>一早大阿狸发消息给我说域名的问题：</p>
+<p><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423011255310.png" alt></p>
+<p>后面了解到，原来是在大阿狸卖的域名得解析到大阿狸，原本我的博客是在github静态博客，github静态博客在国内访问速度真的慢，又没有加速。今天刚好把它部署到阿里云。</p>
+<p>使用到了 nginx+hexo .</p>
+<p>使用前先更新一下apt，不然后面安装nginx可能会出现问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423011940702.png" alt></p>
+<p>安装nginx:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423012005605.png" alt><br><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423012020454.png" alt></p>
+<p>安装成功后，检查是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423012125098.png" alt></p>
+<p>ok,启动nginx:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+
+<p>在浏览器输入服务器公网IP，即可看到nginx初始页面。</p>
+<p>这里网上的配置跟我的不一样，我直接查看默认配置文件没有修改nginx.conf：<br><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423013157379.png" alt><br>查看默认配置：<br><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423013127768.png" alt></p>
+<p>由上图可知：<br>nginx默认配置是访问到/var/www/html中的文件，所以把hexo博客里的public文件夹下的文件全部上传到该目录下。<br><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423012745529.png" alt><br>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service nginx stop</span><br><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+
+<p>完美<br><img src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423013339827.png" alt></p>
+<p>接下来的事就简单了：</p>
+<p>域名解析到IP地址 以及 以后更新文章，直接把public里的文件上传到html文件夹下。</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <a href="/2020/04/23/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/20200423014028351.png" alt="使用nginx在阿里云服务器部署hexo博客">
-                    </p>
-                </a>
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/honbao.PNG" alt="支付宝"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-04-23T05:10:50.000Z">2020-04-23</time>
-                        <a href="/2020/04/23/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用nginx在阿里云服务器部署hexo博客</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/nginx%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2/">nginx安装部署</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <a href="/2020/04/20/Diary/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/Diary/20200420030019086.png" alt="Diary">
-                    </p>
-                </a>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/yjtp.png" alt="微信"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-04-20T05:08:15.000Z">2020-04-20</time>
-                        <a href="/2020/04/20/Diary/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Diary</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E5%BF%83%E6%83%85%E9%9A%8F%E7%AC%94/">心情随笔</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/29/%E6%97%B6%E8%BF%90%E8%B5%8B/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E6%97%B6%E8%BF%90%E8%B5%8B/20200330120209527.png" alt="寒窑赋">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-29T15:22:22.000Z">2020-03-29</time>
-                        <a href="/2020/03/29/%E6%97%B6%E8%BF%90%E8%B5%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">寒窑赋</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E5%8F%A5%E5%AD%90%E8%BF%B7/">句子迷</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/29/windows%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/windows%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/20200329051824140.png" alt="windows系统重装">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-29T09:12:36.000Z">2020-03-29</time>
-                        <a href="/2020/03/29/windows%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">windows系统重装</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/26/%E8%80%81%E8%99%8E%EF%BC%8C%E6%B5%B7%E8%B1%9A%EF%BC%8C%E4%BC%81%E9%B9%85%EF%BC%8C%E8%9C%9C%E8%9C%82%EF%BC%8C%E5%85%AB%E7%88%AA%E9%B1%BC/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E8%80%81%E8%99%8E%EF%BC%8C%E6%B5%B7%E8%B1%9A%EF%BC%8C%E4%BC%81%E9%B9%85%EF%BC%8C%E8%9C%9C%E8%9C%82%EF%BC%8C%E5%85%AB%E7%88%AA%E9%B1%BC/20200326121349671.png" alt="老虎，海豚，企鹅，蜜蜂，八爪鱼">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-26T02:14:02.000Z">2020-03-26</time>
-                        <a href="/2020/03/26/%E8%80%81%E8%99%8E%EF%BC%8C%E6%B5%B7%E8%B1%9A%EF%BC%8C%E4%BC%81%E9%B9%85%EF%BC%8C%E8%9C%9C%E8%9C%82%EF%BC%8C%E5%85%AB%E7%88%AA%E9%B1%BC/" class="title has-link-black-ter is-size-6 has-text-weight-normal">老虎，海豚，企鹅，蜜蜂，八爪鱼</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/21/%E6%9C%AC%E7%A1%95%E5%8D%9A%E4%B9%8B%E5%8C%BA%E5%88%AB/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E6%9C%AC%E7%A1%95%E5%8D%9A%E4%B9%8B%E5%B1%80%E5%88%AB/20200321105739223.png" alt="学历之区别">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-21T14:55:03.000Z">2020-03-21</time>
-                        <a href="/2020/03/21/%E6%9C%AC%E7%A1%95%E5%8D%9A%E4%B9%8B%E5%8C%BA%E5%88%AB/" class="title has-link-black-ter is-size-6 has-text-weight-normal">学历之区别</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E5%8F%A5%E5%AD%90%E8%BF%B7/">句子迷</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/21/%E4%B8%89%E4%BD%93%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E4%B8%89%E4%BD%93%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95/20200321105305988.png" alt="三体经典语录">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-21T14:49:18.000Z">2020-03-21</time>
-                        <a href="/2020/03/21/%E4%B8%89%E4%BD%93%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95/" class="title has-link-black-ter is-size-6 has-text-weight-normal">三体经典语录</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E5%8F%A5%E5%AD%90%E8%BF%B7/">句子迷</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/15/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8BJavaScript/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8BJavaScript/20200315104948526.png" alt="小程序之JavaScript">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-15T14:44:47.000Z">2020-03-15</time>
-                        <a href="/2020/03/15/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8BJavaScript/" class="title has-link-black-ter is-size-6 has-text-weight-normal">小程序之JavaScript</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/07/github/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/20200309105808743.png" alt="git和github">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-07T09:08:15.000Z">2020-03-07</time>
-                        <a href="/2020/03/07/github/" class="title has-link-black-ter is-size-6 has-text-weight-normal">git和github</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/github/">github</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/2020/03/07/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="http://demo-1259638372.cos.ap-chengdu.myqcloud.com/github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/20200309105733714.png" alt="linux学习笔记">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-07T09:05:26.000Z">2020-03-07</time>
-                        <a href="/2020/03/07/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="title has-link-black-ter is-size-6 has-text-weight-normal">linux学习笔记</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
 
-    
+
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/page/0/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/20/Diary/">
+                <span class="level-item">Diary</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/page/2/">下一页</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/archives/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="SOHUCS" sid="2020/04/23/使用nginx在阿里云服务器部署hexo博客/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+    appid: 'cyuITEn5x',
+    conf: '562a6c9925f5f62a5bedddd01e8fa32d'
+});
+</script>
+
+    </div>
 </div>
 </div>
                 
@@ -1122,7 +999,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Alan&#39;s blog" height="28">
+                    <img src="/images/logo.svg" alt="使用nginx在阿里云服务器部署hexo博客" height="28">
                 
                 </a>
                 <p class="is-size-7" >
