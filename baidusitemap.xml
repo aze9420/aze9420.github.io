@@ -1,123 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>http://alanxin.top/404.html</loc>
-    
-    <lastmod>2020-04-29T11:49:17.513Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://alanxin.top/404/404.html</loc>
-    
-    <lastmod>2020-04-29T11:46:35.028Z</lastmod>
-    
-  </url>
-  
   <url>
     <loc>http://alanxin.top/2020/03/07/markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-04-29T11:36:20.079Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-29</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/29/windows%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/</loc>
-    
-    <lastmod>2020-04-29T08:05:00.926Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-29</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/04/23/%E4%BD%BF%E7%94%A8nginx%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2020-04-25T07:52:59.845Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-25</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/07/github/</loc>
-    
-    <lastmod>2020-04-23T06:48:45.434Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-23</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/04/20/Diary/</loc>
-    
-    <lastmod>2020-04-23T05:09:55.182Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-23</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/21/%E4%B8%89%E4%BD%93%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95/</loc>
-    
-    <lastmod>2020-04-20T06:07:03.211Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-20</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/21/%E6%9C%AC%E7%A1%95%E5%8D%9A%E4%B9%8B%E5%8C%BA%E5%88%AB/</loc>
-    
-    <lastmod>2020-04-20T06:06:52.776Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-20</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/29/%E6%97%B6%E8%BF%90%E8%B5%8B/</loc>
-    
-    <lastmod>2020-04-14T14:41:54.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://alanxin.top/about/index.html</loc>
-    
-    <lastmod>2020-04-01T12:27:26.795Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/26/%E8%80%81%E8%99%8E%EF%BC%8C%E6%B5%B7%E8%B1%9A%EF%BC%8C%E4%BC%81%E9%B9%85%EF%BC%8C%E8%9C%9C%E8%9C%82%EF%BC%8C%E5%85%AB%E7%88%AA%E9%B1%BC/</loc>
-    
-    <lastmod>2020-03-26T04:21:16.416Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-03-26</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/15/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8BJavaScript/</loc>
-    
-    <lastmod>2020-03-16T05:29:45.920Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-03-16</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/07/linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2020-03-09T03:03:32.891Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-03-09</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/07/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/</loc>
-    
-    <lastmod>2020-03-09T03:02:43.919Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-03-09</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/07/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</loc>
-    
-    <lastmod>2020-03-09T03:01:51.735Z</lastmod>
-    
-  </url>
-  
-  <url>
+    <lastmod>2020-03-09</lastmod>
+  </url>  <url>
     <loc>http://alanxin.top/2020/03/07/java%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%89/</loc>
-    
-    <lastmod>2020-03-09T03:00:12.804Z</lastmod>
-    
+    <lastmod>2020-03-09</lastmod>
   </url>
-  
 </urlset>
